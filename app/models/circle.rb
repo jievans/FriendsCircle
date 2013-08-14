@@ -1,5 +1,5 @@
 class Circle < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :member_ids
 
   has_many :memberships,
   :class_name => "CircleMembership",

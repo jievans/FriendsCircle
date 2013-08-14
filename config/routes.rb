@@ -1,4 +1,6 @@
 FriendCircle::Application.routes.draw do
+  get "circles/new"
+
   get "users/new"
 
   get "users/show"
