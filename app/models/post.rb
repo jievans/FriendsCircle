@@ -20,6 +20,6 @@ class Post < ActiveRecord::Base
   :foreign_key => :user_id,
   :primary_key => :id
 
-  accepts_nested_attributes_for :links
+  accepts_nested_attributes_for :links, :reject_if => :all_blank
 
 end

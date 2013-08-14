@@ -1,0 +1,36 @@
+<% action_url = action == :edit ? circle_url(circle) : circles_url %>
+
+<form action="<%= action_url %>" method="post">
+  <% if action == :edit%>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
+
+  <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token%>">
+
+  <% User.all.each do |user| %>
+    <% html_id = "circle_member_ids_#{user.id}" %>
+    <input
+      type="checkbox"
+      name="circle[member_ids][]"
+      <%= "checked" if circle.member_ids.include?(user.id) %>
+      value="<%= user.id %>"
+      id="<%= html_id%>">
+      <label for="<%= html_id%>">
+        <%= user.username %>
+      </label>
+      <br>
+  <% end %>
+
+  <input type="hidden" name="circle[member_ids][]" value="">
+
+  <br>
+  <label for="circle_name">Circle Name</label>
+  <input type="text"
+         name="circle[name]"
+         id="circle_name"
+         value="<%= circle.name%>">
+  <br>
+  <input type="submit">
+
+</form>

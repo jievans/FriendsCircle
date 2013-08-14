@@ -1,0 +1,6 @@
+<h2>Circle#Show</h2>
+
+<%= @circle.name %>
+<% @circle.members.each do |member| %>
+  <div><%= link_to member.username, user_url(member)%></div>
+<% end %>
