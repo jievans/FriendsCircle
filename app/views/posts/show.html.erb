@@ -1,0 +1,19 @@
+<h1>Post for user: <%= current_user.username %></h1>
+
+<h2>Body for Post</h2>
+<%= @post.body %>
+
+
+<h2>Circles for post:</h2>
+<% @post.circles.each do |circle| %>
+
+<div><%= link_to circle.name, circle_url(circle) %></div>
+
+<% end %>
+
+<h2>Links for post:</h2>
+<% @post.links.each do |link| %>
+
+<div><%= link_to link.body, "http://#{link.body}" %></div>
+
+<% end %>

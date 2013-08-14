@@ -1,0 +1,44 @@
+<h2>New Post</h2>
+
+<form action="<%= posts_url%>" method="post">
+	<input type="hidden" name="authenticity_token"
+	  value="<%= form_authenticity_token %>">
+
+  <label for="post_body">Body</label>
+  <br>
+  <textarea type="text" name="post[body]" id="post_body"></textarea>
+  <br>
+  <br>
+
+  <div>Choose your circles</div>
+  <% Circle.all.each do |circle| %>
+    <% html_id = "post_circle_ids_#{circle.id}" %>
+    <input
+      type="checkbox"
+      name="post[circle_ids][]"
+      value="<%= circle.id %>"
+      id="<%= html_id%>">
+      <label for="<%= html_id%>">
+        <%= circle.name %>
+      </label>
+      <br>
+  <% end %>
+
+  <br>
+  <label for="post_links_attributes_0_body">Link Body<label>
+  <input id="post_links_attributes_0_body"
+         name="post[links_attributes][0][body]"
+         type="text">
+         <br>
+  <label for="post_links_attributes_1_body">Link Body<label>
+  <input id="post_links_attributes_1_body"
+         name="post[links_attributes][1][body]"
+         type="text">
+         <br>
+  <label for="post_links_attributes_2_body">Link Body<label>
+  <input id="post_links_attributes_2_body"
+         name="post[links_attributes][2][body]"
+         type="text">
+         <br>
+  <input type="submit" value="Create Post" >
+</form>

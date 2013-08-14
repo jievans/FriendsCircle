@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
   :through => :memberships,
   :source => :circle
 
+  has_many :posts,
+  :class_name => "Post",
+  :foreign_key => :user_id,
+  :primary_key => :id
+
   include BCrypt
 
   def password=(password)
