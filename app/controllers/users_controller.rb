@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_filter :logged_in, :only => [:create, :new]
 
   def new
+    render :new
   end
 
   def create

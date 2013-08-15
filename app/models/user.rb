@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :circle_ids
+  attr_accessible :username, :password, :circle_ids, :posts_attributes
 
   before_validation :generate_token, :on => :create
 
@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   has_many :included_posts,
   :through => :circles,
   :source => :posts
+
+  accepts_nested_attributes_for :posts, :reject_if => :all_blank
 
   include BCrypt
 

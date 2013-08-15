@@ -9,7 +9,35 @@
   <br>
   <label for="user_password">Password</label>
 	<input type="password" name="user[password]" id="user_password">
-  <br>
+  <br><br>
 
+  <label for="user_posts_attributes_0_body">Body of your first post</label>
+  <br>
+  <textarea name="user[posts_attributes][0][body]" type="text"
+         id="user_posts_attributes_0_body">
+  </textarea>
+
+  <br><br>
+  <label for="user_posts_attributes_0_links_attributes_0_body">
+    1st Link
+  </label>
+  <input name="user[posts_attributes][0][links_attributes][0][body]" type="text"
+         id="user_posts_attributes_0_links_attributes_0_body">
+
+  <br>
+  <label for="user_posts_attributes_0_links_attributes_1_body">
+     2nd link
+  </label>
+  <input name="user[posts_attributes][0][links_attributes][1][body]" type="text"
+         id="user_posts_attributes_0_links_attributes_1_body">
+
+  <br>
+  <label for="user_posts_attributes_0_links_attributes_2_body">
+    3rd link
+  </label>
+  <input name="user[posts_attributes][0][links_attributes][2][body]" type="text"
+         id="user_posts_attributes_0_links_attributes_2_body">
+
+  <br><br>
   <input type="submit" value="Create user">
 </form>
