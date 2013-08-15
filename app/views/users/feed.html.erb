@@ -1,0 +1,21 @@
+<h2>FEED</h2>
+
+<% @circles_with_posts.each do |circle| %>
+  <h3><%=circle.name%></h3>
+  <% circle.posts.each do |post| %>
+    <div>
+    Body: <%= post.body %>
+    </div>
+
+    <div>
+    Author: <%= post.user.username %>
+    </div>
+
+    <ul>
+    <%post.links.each do |link| %>
+      <%= link_to link.body, "http://#{link.body}"%><br>
+    <%end%>
+    </ul>
+
+  <% end %>
+<%end%>

@@ -18,4 +18,9 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+  def feed
+    @circles_with_posts = current_user.circles.includes(:posts)
+    render :feed
+  end
 end

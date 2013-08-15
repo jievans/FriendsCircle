@@ -4,5 +4,6 @@ FriendCircle::Application.routes.draw do
   resource :session
   resources :posts
 
+  get "/feed", :to => "users#feed"
 
 end
