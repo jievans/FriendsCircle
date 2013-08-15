@@ -6,4 +6,5 @@ FriendCircle::Application.routes.draw do
 
   get "/feed", :to => "users#feed"
 
+
 end
